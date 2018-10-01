@@ -1,0 +1,34 @@
+{
+    "jsonschema":"http://www.jsonschema.org",
+    "__version__":0.54,
+    "name":"akash",
+    "number":4,
+    "condition":true,
+    "reqobj":["array","of","things"],
+    "objkey":{
+        "name":"value",
+        "kind":"some"
+    },
+    "objwitharray":{
+        "name":["akash","lucky"],
+        "surname":["this","condition"]
+    },
+    "objcetwithobject":{
+        "name":{
+            "some":"kind",
+            "vilal":"vilas"
+        }
+    },
+    "arrayofobj":[
+        {
+            "name":"akash"
+        },
+        {
+            "name":"lucky"
+        }
+    ],
+    "arrayofarray":[
+        ["akash","lucky"],
+        ["main","villas"]
+    ]
+}
