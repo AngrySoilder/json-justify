@@ -1,6 +1,4 @@
-# some **ucking utilities
 from json import dumps
-from functools import wraps
 
 class ErrorResponse(object):
 
@@ -29,15 +27,15 @@ class PlaceHolder(object):
     """
 
     def __str__(self):
-    	return "<Placeholder>"
+        return "<Placeholder>"
 
     __repr__ = __str__
 
     def __nonzero__(self):
-    	return False
+        return False
 
     def __bool__(self):
-    	return self.__nonzero__()
+        return self.__nonzero__()
 
 class Level(object):
 
@@ -76,4 +74,4 @@ class Level(object):
 
     @level.deleter
     def level(self):
-    	raise Exception("cannot delete level")
+        raise Exception("cannot delete level")

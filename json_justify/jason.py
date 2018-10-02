@@ -60,15 +60,10 @@ class JsonManager():
     Object = dict
     integral_types_list = [str, bool, float, int, list]
 
-    def __init__(self, data = None , allow_extra=False, _child_hook = False):
+    def __init__(self, data , allow_extra=False, _child_hook = False):
         """This function will create some attris for own
         need and if app variable is provided then it will
         use this app to create global protections
-
-        Args:
-            app (Flask, optional): Flask application
-            create using `app = Flask(__name__)` into 
-            this function
         """
         self.data = data
         self._render_funcs = set()
@@ -135,7 +130,6 @@ class JsonManager():
 
         Returns:
             int: Length of field dict
-        0
         """
         return len(self._field_dict)
 
@@ -197,8 +191,6 @@ class JsonManager():
         """
         if self.data is not None:
              self._set_data(data = self.data)
-        elif bool(request.json):
-            self._set_data(data = request.json)
         else:
             raise Invalid("Please Provide Data To Function")  
 
