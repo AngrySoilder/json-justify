@@ -1,0 +1,32 @@
+actionid: py27
+msg: getenv
+cmdargs: "'/home/akash/Work_back/Project/Open source/json_justify/.tox/py27/bin/python' -m pip install pytest email_validator"
+
+Collecting pytest
+  Using cached https://files.pythonhosted.org/packages/0c/9a/592314ceda78f3307afb6cf56d7fdbb92c5a5960a88a6d2fd25c11312ead/pytest-3.8.1-py2.py3-none-any.whl
+Collecting email_validator
+  Using cached https://files.pythonhosted.org/packages/d9/0f/7e3815143e30959fd38d02f622c77912a465c153d854317b248d29d6d7bf/email_validator-1.0.3-py2.py3-none-any.whl
+Collecting more-itertools>=4.0.0 (from pytest)
+  Using cached https://files.pythonhosted.org/packages/fb/d3/77f337876600747ae307ea775ff264c5304a691941cd347382c7932c60ad/more_itertools-4.3.0-py2-none-any.whl
+Collecting funcsigs; python_version < "3.0" (from pytest)
+  Using cached https://files.pythonhosted.org/packages/69/cb/f5be453359271714c01b9bd06126eaf2e368f1fddfff30818754b5ac2328/funcsigs-1.0.2-py2.py3-none-any.whl
+Collecting atomicwrites>=1.0 (from pytest)
+  Using cached https://files.pythonhosted.org/packages/3a/9a/9d878f8d885706e2530402de6417141129a943802c084238914fa6798d97/atomicwrites-1.2.1-py2.py3-none-any.whl
+Collecting py>=1.5.0 (from pytest)
+  Using cached https://files.pythonhosted.org/packages/c8/47/d179b80ab1dc1bfd46a0c87e391be47e6c7ef5831a9c138c5c49d1756288/py-1.6.0-py2.py3-none-any.whl
+Collecting pluggy>=0.7 (from pytest)
+  Using cached https://files.pythonhosted.org/packages/f5/f1/5a93c118663896d83f7bcbfb7f657ce1d0c0d617e6b4a443a53abcc658ca/pluggy-0.7.1-py2.py3-none-any.whl
+Collecting pathlib2>=2.2.0; python_version < "3.6" (from pytest)
+  Using cached https://files.pythonhosted.org/packages/66/a7/9f8d84f31728d78beade9b1271ccbfb290c41c1e4dc13dbd4997ad594dcd/pathlib2-2.3.2-py2.py3-none-any.whl
+Collecting six>=1.10.0 (from pytest)
+  Using cached https://files.pythonhosted.org/packages/67/4b/141a581104b1f6397bfa78ac9d43d8ad29a7ca43ea90a2d863fe3056e86a/six-1.11.0-py2.py3-none-any.whl
+Requirement already satisfied: setuptools in ./.tox/py27/lib/python2.7/site-packages (from pytest) (40.4.3)
+Collecting attrs>=17.4.0 (from pytest)
+  Using cached https://files.pythonhosted.org/packages/3a/e1/5f9023cc983f1a628a8c2fd051ad19e76ff7b142a0faf329336f9a62a514/attrs-18.2.0-py2.py3-none-any.whl
+Collecting dnspython>=1.15.0 (from email_validator)
+  Using cached https://files.pythonhosted.org/packages/a6/72/209e18bdfedfd78c6994e9ec96981624a5ad7738524dd474237268422cb8/dnspython-1.15.0-py2.py3-none-any.whl
+Collecting idna>=2.0.0 (from email_validator)
+  Using cached https://files.pythonhosted.org/packages/4b/2a/0276479a4b3caeb8a8c1af2f8e4355746a97fab05a372e4a2c6a6b876165/idna-2.7-py2.py3-none-any.whl
+Collecting scandir; python_version < "3.5" (from pathlib2>=2.2.0; python_version < "3.6"->pytest)
+Installing collected packages: six, more-itertools, funcsigs, atomicwrites, py, pluggy, scandir, pathlib2, attrs, pytest, dnspython, idna, email-validator
+Successfully installed atomicwrites-1.2.1 attrs-18.2.0 dnspython-1.15.0 email-validator-1.0.3 funcsigs-1.0.2 idna-2.7 more-itertools-4.3.0 pathlib2-2.3.2 pluggy-0.7.1 py-1.6.0 pytest-3.8.1 scandir-1.9.0 six-1.11.0

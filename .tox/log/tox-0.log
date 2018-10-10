@@ -1,0 +1,52 @@
+actionid: tox
+msg: packaging
+cmdargs: "/usr/bin/python3 '/home/akash/Work_back/Project/Open source/json_justify/setup.py' sdist --formats=zip --dist-dir '/home/akash/Work_back/Project/Open source/json_justify/.tox/dist'"
+
+running sdist
+running egg_info
+writing justify.egg-info/PKG-INFO
+writing dependency_links to justify.egg-info/dependency_links.txt
+writing requirements to justify.egg-info/requires.txt
+writing top-level names to justify.egg-info/top_level.txt
+reading manifest file 'justify.egg-info/SOURCES.txt'
+writing manifest file 'justify.egg-info/SOURCES.txt'
+warning: sdist: standard file not found: should have one of README, README.rst, README.txt, README.md
+
+running check
+warning: check: missing required meta-data: url
+
+creating justify-0.1
+creating justify-0.1/json_justify
+creating justify-0.1/justify.egg-info
+copying files to justify-0.1...
+copying setup.py -> justify-0.1
+copying json_justify/__init__.py -> justify-0.1/json_justify
+copying json_justify/_compat.py -> justify-0.1/json_justify
+copying json_justify/fields.py -> justify-0.1/json_justify
+copying json_justify/jason.py -> justify-0.1/json_justify
+copying json_justify/utils.py -> justify-0.1/json_justify
+copying json_justify/validators.py -> justify-0.1/json_justify
+copying justify.egg-info/PKG-INFO -> justify-0.1/justify.egg-info
+copying justify.egg-info/SOURCES.txt -> justify-0.1/justify.egg-info
+copying justify.egg-info/dependency_links.txt -> justify-0.1/justify.egg-info
+copying justify.egg-info/not-zip-safe -> justify-0.1/justify.egg-info
+copying justify.egg-info/requires.txt -> justify-0.1/justify.egg-info
+copying justify.egg-info/top_level.txt -> justify-0.1/justify.egg-info
+Writing justify-0.1/setup.cfg
+creating '.tox/dist/justify-0.1.zip' and adding 'justify-0.1' to it
+adding 'justify-0.1/setup.py'
+adding 'justify-0.1/PKG-INFO'
+adding 'justify-0.1/setup.cfg'
+adding 'justify-0.1/json_justify/_compat.py'
+adding 'justify-0.1/json_justify/__init__.py'
+adding 'justify-0.1/json_justify/utils.py'
+adding 'justify-0.1/json_justify/fields.py'
+adding 'justify-0.1/json_justify/jason.py'
+adding 'justify-0.1/json_justify/validators.py'
+adding 'justify-0.1/justify.egg-info/dependency_links.txt'
+adding 'justify-0.1/justify.egg-info/not-zip-safe'
+adding 'justify-0.1/justify.egg-info/PKG-INFO'
+adding 'justify-0.1/justify.egg-info/requires.txt'
+adding 'justify-0.1/justify.egg-info/top_level.txt'
+adding 'justify-0.1/justify.egg-info/SOURCES.txt'
+removing 'justify-0.1' (and everything under it)

@@ -1,0 +1,8 @@
+actionid: py27
+msg: getenv
+cmdargs: '/usr/bin/python3.6 -m virtualenv --python /usr/bin/python2.7 py27'
+
+Running virtualenv with interpreter /usr/bin/python2.7
+New python executable in /home/akash/Work_back/Project/Open source/json_justify/.tox/py27/bin/python2.7
+Also creating executable in /home/akash/Work_back/Project/Open source/json_justify/.tox/py27/bin/python
+Installing setuptools, pip, wheel...done.
