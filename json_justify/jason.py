@@ -1,19 +1,8 @@
-"""This is JSON
-the idea on which it works
-{
-[CONTAINER]-|
-            |--[ITEM]-|
-                      |--[VALIDATOR]-|
-                                     |-[VALIDATE]--[Exception]
-}-{INPUT}->[MANAGER]-|
-              |--[CONTROL ACCESS]-|
-                                 |-[SHOWMAN]
-"""
 from json_justify.validators import Invalid
 import json_justify.fields as fields
 from inspect import isclass
-from flask import request
 from json import dumps
+from json_justify._compat import string_types,text_type
 
 class InvalidMachiene(ValueError):
     """
@@ -46,7 +35,7 @@ class InvalidContainer(ValueError):
         super(InvalidContainer, self).__init__(message)
 
 
-class JsonManager():
+class JsonManager(object):
 
     """This is the main json field which ultimately
     any progarm will subclass to make it
@@ -58,7 +47,7 @@ class JsonManager():
 
     """
     Object = dict
-    integral_types_list = [str, bool, float, int, list]
+    integral_types_list = [text_type, bool, float, int, list]
 
     def __init__(self, data , allow_extra=False, _child_hook = False):
         """This function will create some attris for own
@@ -175,11 +164,11 @@ class JsonManager():
         Returns:
             dict: dict of filtered obj
         """
-        dct = {str(clas) or str(getattr(self, clas).field_name): getattr(self, clas)
+        dct = {text_type(clas) or text_type(getattr(self, clas).field_name): getattr(self, clas)
                for clas in dir(self) if
                isinstance(getattr(self, clas), fields.Field) or
                isclass(getattr(self, clas)) and
-               not str(clas).startswith('_') and
+               not text_type(clas).startswith('_') and
                issubclass(getattr(self, clas), JsonManager)}
         self._field_dict = dct
         return dct
@@ -224,7 +213,7 @@ class JsonManager():
         if "render_machienes" in dir(self):
             machiene = getattr(self,"render_machienes")
             if not isinstance(machiene, tuple):
-                raise ValueError(str(machiene) + "Should be a tuple type")
+                raise ValueError(text_type(machiene) + "Should be a tuple type")
             for func in machiene:
                 self.add_render_machiene(func)
 

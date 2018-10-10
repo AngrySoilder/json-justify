@@ -5,7 +5,7 @@
 import pytest
 from json_justify import JsonManager
 from json_justify.fields import String, Number, Boolean, Array, Keyname, Field
-from json_justify.validators import Invalid, Data, Length, Right
+from json_justify.validators import Invalid, Length, Right
 
 class dummyclas:
     pass

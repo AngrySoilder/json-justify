@@ -1,3 +1,4 @@
+setup.py
 json_justify/__init__.py
 json_justify/_compat.py
 json_justify/fields.py
