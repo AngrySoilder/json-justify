@@ -2,7 +2,6 @@ from json_justify.validators import Invalid
 import json_justify.fields as fields
 from inspect import isclass
 from json import dumps
-from json_justify._compat import string_types,text_type
 
 class InvalidMachiene(ValueError):
     """
@@ -47,7 +46,7 @@ class JsonManager(object):
 
     """
     Object = dict
-    integral_types_list = [text_type, bool, float, int, list]
+    integral_types_list = [str, bool, float, int, list]
 
     def __init__(self, data , allow_extra=False, _child_hook = False):
         """This function will create some attris for own
@@ -164,11 +163,11 @@ class JsonManager(object):
         Returns:
             dict: dict of filtered obj
         """
-        dct = {text_type(clas) or text_type(getattr(self, clas).field_name): getattr(self, clas)
+        dct = {str(clas) or str(getattr(self, clas).field_name): getattr(self, clas)
                for clas in dir(self) if
                isinstance(getattr(self, clas), fields.Field) or
                isclass(getattr(self, clas)) and
-               not text_type(clas).startswith('_') and
+               not str(clas).startswith('_') and
                issubclass(getattr(self, clas), JsonManager)}
         self._field_dict = dct
         return dct
@@ -213,7 +212,7 @@ class JsonManager(object):
         if "render_machienes" in dir(self):
             machiene = getattr(self,"render_machienes")
             if not isinstance(machiene, tuple):
-                raise ValueError(text_type(machiene) + "Should be a tuple type")
+                raise ValueError(str(machiene) + "Should be a tuple type")
             for func in machiene:
                 self.add_render_machiene(func)
 

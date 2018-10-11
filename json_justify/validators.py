@@ -3,7 +3,6 @@ This module is made to create validators in the field
 """
 import re
 import warnings
-from json_justify._compat import text_type, string_types
 from datetime import datetime
 EmailRegex = r'[^@]+@[^@]+\.[^@]+'
 UrlRegex = (
@@ -72,8 +71,8 @@ class Data(Validator):
             Invalid: if data is not provided
         """
         data = field.data
-        if isinstance(data, string_types) or isinstance(data, int) or isinstance(data, float):
-            self.data = text_type(field.data)
+        if isinstance(data, str) or isinstance(data, int) or isinstance(data, float):
+            self.data = str(field.data)
             if not self.data.strip():
                 raise Invalid("data is not valid")
         if isinstance(data, list) or isinstance(data, dict):
@@ -108,8 +107,8 @@ class Length(Validator):
 
     def __call__(self, obj, field):
         self.data = field.data
-        if (isinstance(self.data, (text_type, int, float))):
-            self.data = text_type(self.data).strip()
+        if (isinstance(self.data, (str, int, float))):
+            self.data = str(self.data).strip()
         else:
             raise Invalid("Not a Valid Type")
         if (len(self.data) < self.min_val or 
@@ -133,7 +132,7 @@ class Email(Validator):
         try:
             validate_email(self.data)
         except EmailNotValidError:
-            raise Invalid(text_type(self.data) + "is not valid")
+            raise Invalid(str(self.data) + "is not valid")
 
 class URL(Validator):
 

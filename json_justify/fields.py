@@ -7,7 +7,6 @@ from json_justify.utils import PlaceHolder
 from inspect import isclass
 from json_justify.validators import Invalid
 import json_justify.jason
-from json_justify._compat import string_types, text_type
 
 
 class Field(object):
@@ -97,7 +96,7 @@ class String(Field):
         The validator is used to
         :return:
         """
-        if isinstance(self.data, string_types):
+        if isinstance(self.data, str):
             if self.validators is not None:
                 for check in self.validators:
                     check(self.field_object, self)
@@ -196,8 +195,8 @@ class Array(Field):
             raise ValueError("field object to filed should be instance of JsonManager")
 
         self.field_object = field_object
-        if text_type(self.field_name) in self.field_object:
-            dat = self.field_object._mapped_data[text_type(self.field_name)]
+        if str(self.field_name) in self.field_object:
+            dat = self.field_object._mapped_data[str(self.field_name)]
             if not isinstance(dat, list):
                 raise Invalid("Array should Be list")
             if (len(dat) < self.min_len or 
@@ -234,18 +233,18 @@ class Keyname(object):
     """
     
     def __init__(self, key, prefix=None):
-        if prefix is not None and isinstance(prefix, string_types) and bool(prefix.strip()):
+        if prefix is not None and isinstance(prefix, str) and bool(prefix.strip()):
             self._prefix = prefix.strip()
         else:
             self._prefix = ''
 
-        if isinstance(key, string_types) and bool(key.strip()):
+        if isinstance(key, str) and bool(key.strip()):
             self._key = key.strip()
         else:
             raise TypeError("key of json should be of string Type")
 
     def __str__(self):
-        return text_type(self._prefix + self._key)
+        return str(self._prefix + self._key)
 
     def __repr__(self):
-        return text_type(self._prefix + self._key)
+        return str(self._prefix + self._key)
