@@ -8,4 +8,8 @@ setup(name='justify',
       license='MIT',
       packages=['json_justify'],
       zip_safe=False,
-      install_requires=['email_validator'])
+      install_requires=['email_validator'],
+      classifiers = [
+      "Programming Language :: Python :: 3.6"
+      ]
+      )
