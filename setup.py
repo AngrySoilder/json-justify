@@ -8,4 +8,4 @@ setup(name='justify',
       license='MIT',
       packages=['json_justify'],
       zip_safe=False,
-      install_requires=['flask', 'werkzeug', 'itsdangerous'])
+      install_requires=['email_validator'])
