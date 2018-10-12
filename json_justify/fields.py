@@ -14,7 +14,7 @@ class Field(object):
     This is field which is used subset
     """
 
-    def __init__(self, field_name, js_data=None, validators=None):
+    def __init__(self, field_name, validators=None):
         """
         The Basic Field object Which should be instanciated
         By every Field one create and also by custom fields
@@ -28,7 +28,6 @@ class Field(object):
         if validators is not None and not isinstance(validators, list):
             raise Invalid("validators: should be None or list type")
         self.validators = validators
-        self.js_data = js_data
 
     def __str__(self):
         """This is added to give a string Representation
@@ -151,16 +150,15 @@ class Array(Field):
     literals as their items like
     """
     def __init__(self, field_name, min_len=-1, max_len=-1,
-                 js_data=None, js_model=None, validators=None, seq_validators=None):
+                 js_model=None, validators=None, seq_validators=None):
         """This is addition of functionality of function
         in init function
         
         Args:
             field_name (TYPE): Description
-            js_data (None, optional): Description
             validators (None, optional): Description
         """
-        super(Array, self).__init__(field_name, js_data, validators)
+        super(Array, self).__init__(field_name, validators)
 
         _t_ckeck = [cls for cls in (validators, seq_validators, js_model) if cls is not None]
         _t_ckeck = len(_t_ckeck)
