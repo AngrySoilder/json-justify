@@ -1,0 +1,22 @@
+[run]
+branch = True
+
+[report]
+exclude_lines =
+    pragma: no cover
+
+    def __repr__
+    if self\.debug
+    raise AssertionError
+    raise NotImplementedError
+    except ImportError as e:
+    if 0:
+    if __name__ == .__main__.:
+    raise Invalid\("Invalid json"\)
+    elif bool\(request.json\):
+    raise Invalid\("Please Provide Data To Function"\)
+
+ignore_errors = True
+
+[html]
+directory = htmlcov
