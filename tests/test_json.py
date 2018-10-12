@@ -115,12 +115,10 @@ def test_chain():
 
 def test_missing():
     js = DummyClass(data=missing_data)
-    with pytest.raises(Invalid):
-        js.is_valid()
+    assert not js.is_valid()
 
     js = DummyClass(data=extra_data)
-    with pytest.raises(Invalid):
-        js.is_valid()
+    assert not js.is_valid()
 
 def test_keymaper():
     with pytest.raises(ValueError):
