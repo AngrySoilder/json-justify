@@ -1,2 +1,2 @@
 ## Json limiter
-[![Build Status](https://travis-ci.org/AngrySoilder/json-justify.svg?branch=master)](https://travis-ci.org/AngrySoilder/json-justify) [![Requirements Status](https://requires.io/github/AngrySoilder/json-justify/requirements.svg?branch=master)](https://requires.io/github/AngrySoilder/json-justify/requirements/?branch=master)![Deps Status](https://david-dm.org/AngrySoilder/json-justify.svg)
+[![Build Status](https://travis-ci.org/AngrySoilder/json-justify.svg?branch=master)](https://travis-ci.org/AngrySoilder/json-justify) [![Requirements Status](https://requires.io/github/AngrySoilder/json-justify/requirements.svg?branch=master)](https://requires.io/github/AngrySoilder/json-justify/requirements/?branch=master)
