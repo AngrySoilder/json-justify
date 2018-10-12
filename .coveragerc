@@ -1,5 +1,6 @@
 [run]
 branch = True
+source=json_justify
 
 [report]
 exclude_lines =

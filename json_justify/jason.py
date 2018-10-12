@@ -284,6 +284,12 @@ class JsonManager(object):
         self._error_data[name] = value
 
     def generate_otk_token(self):
+        """This method should be reimplemented in the class who will
+        instanciate this
+        
+        Returns:
+            tuple: authentication token
+        """
         return ('auth_token', 'token')
 
     def _setup_attris(self):

@@ -2,8 +2,8 @@ from json import dumps
 
 class ErrorResponse(object):
 
-    """This class is used to create error response and helps in
-    creating a json storage
+    """This class is creted and implemented in later version
+    Just a dummy version of classes
     """
     def __init__(self, response = None):
         self.response = dict()
