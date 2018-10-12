@@ -234,26 +234,26 @@ class JsonManager(object):
         """
         # TODO: Add setup json inside try block and if json is not
         # Todo: provided Then Reutrn False
-        self.setup_json()
-        for field_key, field in self.items():
-            try:
+
+        try:
+            self.setup_json()
+            for field_key, field in self.items():
                 # TODO: Add check for self._mapped data attribute check
                 data = self._mapped_data.get(field_key)
                 if (self.is_object(data) and
-                isclass(field) and 
+                isclass(field) and
                 issubclass(field, JsonManager)):
-                    js = field(data = data, _child_hook = True) 
+                    js = field(data = data, _child_hook = True)
                     js.is_valid()
                 else:
                     # You can also set data directly but dont
-                    # do it directly
+                    # do it directly its system specifiv
                     field(self)
-            except Invalid as e:
-                if self.child:
-                    raise Invalid(e)
-                else:
-                    print(e)
-                    return False
+        except Invalid as e:
+            if self.child:
+                raise Invalid(str(e))
+            else:
+                return False
         return True
 
     def __call__(self):
