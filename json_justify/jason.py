@@ -202,7 +202,6 @@ class JsonManager(object):
             raise Invalid("Please Provide A valid json with all fields")
         elif len(self._mapped_data) == 0:
             if not self.allow_extra and len(self.data) > len(self):
-                print(self.data, len(self))
                 self.regester_error("Error","Extra fields not Accepted")
                 raise Invalid("Extra Field Not Excepted")
             self._mapped_data = self.data
