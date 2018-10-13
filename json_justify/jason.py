@@ -57,12 +57,10 @@ class JsonManager(object):
         self._render_funcs = set()
         self._attris_funcs = list()
         self.static = {}
-        self._registred_errors = {}
         self._error_data = {}
         self._mapped_data = {}
         self.allow_extra = allow_extra
         self.child = _child_hook
-
         self.add_render_machiene(self.generate_otk_token)
         self.setup_fields()
         self._get_render_machienes()
@@ -180,6 +178,7 @@ class JsonManager(object):
         if self.data is not None:
              self._set_data(data = self.data)
         else:
+            self.regester_error("Error","Data Value is Null")
             raise Invalid("Please Provide Data To Function")  
 
     def _set_data(self, data=None):
@@ -199,13 +198,16 @@ class JsonManager(object):
         self._mapped_data = {key: self[key]
                              for key in self if key not in self.data}
         if len(self._mapped_data) > 0:
+            self.regester_error("Error","Not All fields available")
             raise Invalid("Please Provide A valid json with all fields")
         elif len(self._mapped_data) == 0:
             if not self.allow_extra and len(self.data) > len(self):
                 print(self.data, len(self))
+                self.regester_error("Error","Extra fields not Accepted")
                 raise Invalid("Extra Field Not Excepted")
             self._mapped_data = self.data
         else:
+            self.regester_error("Error","Invaid Json")
             raise Invalid("Invalid json")
 
     def _get_render_machienes(self):
@@ -327,6 +329,17 @@ class JsonManager(object):
         """
         _return = keymapper(self._render_funcs)
         return _return
+
+    def json_or_error(self):
+        """
+        json_or_error function should be to get json or error
+        -json and returned to system and then rendered accordingly
+        :return:
+        """
+        if self.is_valid():
+            return self.data
+        else:
+            return self._error_data
 
 def keymapper(dict_like):
     """This function is used to take a function 
