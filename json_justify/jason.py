@@ -255,6 +255,7 @@ class JsonManager(object):
             if self.child:
                 raise Invalid(str(e))
             else:
+                self.regester_error("Error",str(e))
                 return False
         return True
 
