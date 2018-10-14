@@ -126,6 +126,7 @@ class JsonManager(object):
         """
         This method should be used to get all of the Field class keys inside
         JsonManager Class
+
         :return: a list of Field
         """
         sge = []
@@ -147,6 +148,7 @@ class JsonManager(object):
     def child(self):
         """
         This property is used to check that if it is child json or not
+
         :return: True or False
         """
         return self._child_hook
@@ -160,6 +162,7 @@ class JsonManager(object):
     def setup_fields(self):
         """This method filters out and setup field dictionary to work creates field
         dictionary and returns it
+
         :return: a dictionary of fields
         """
         dct = {str(clas) or str(getattr(self, clas).field_name): getattr(self, clas)
@@ -175,6 +178,7 @@ class JsonManager(object):
         """This is function which will be used to 
         setup form if data and if not provided in any of its instances
         then it will register error
+
         :raises: Invalid if not valid data
         """
         if self.data is not None:
@@ -237,6 +241,7 @@ class JsonManager(object):
         Following Things Will be checked
         -- Data type corrospondence
         -- Good with validators
+
         :returns: True or False
         """
         try:
@@ -272,8 +277,7 @@ class JsonManager(object):
         This is used to regester function which will be called on creation of class
         if param is not callable then it will raise InvalidMachiene
 
-        :param func: Callable function which returns tuple of key value pair or return value
-        if function name you want to be key name
+        :param func: Callable function which returns tuple of key value pair or return value if function name you want to be key name
         :return: None
         """
         if not callable(func):
@@ -321,8 +325,8 @@ class JsonManager(object):
 
     def add_render_machiene(self, func):
         """
-        This is used to regester function for rendering
-        if param is not callable then it will raise InvalidContainer
+        This is used to regester function for rendering if param is not callable then it will raise InvalidContainer
+
         :param func:
         :raise: InvalidContainer
         :return:
