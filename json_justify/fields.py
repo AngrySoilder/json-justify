@@ -18,6 +18,11 @@ class Field(object):
     -- Instanciate Field
     -- Should implement _validate() function to which data of field will be provided
     Also one can change whole functionality by instanciating Field object as well
+
+    :param field_name: Name of the field same as JsonManager Class Field
+    :param validators: list of validators
+    :type field_name: str
+    :type validators: list of callable take one param data
     """
 
     def __init__(self, field_name, validators=None):
@@ -47,6 +52,7 @@ class Field(object):
     def data(self):
         """
         :returns: data associated with particular field
+        :raises: Invalid Exception on delete of these property
         """
         return self._data
 
@@ -63,8 +69,10 @@ class Field(object):
         of the fields which is usually done by the
         validaors to register errors
         
-        Args:
-            message (str): Description of the message
+        :param key: key of error for json
+        :param value: custom error message inside json
+
+        :returns: None but registors error
         """
         self.error_messages[key] = value
 
@@ -171,7 +179,7 @@ class Array(Field):
     Arrays and also objects inside array
     
     Two Dimentional or N-Dimentional Array May be Implemented inside later Version of This
-    
+
     Extends:
         Field
     """
