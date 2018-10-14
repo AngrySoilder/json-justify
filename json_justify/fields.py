@@ -1,6 +1,9 @@
 """
-This file configures valid fields That are in
-Valid json configurations
+fields is used to import various fields for json
+example
+.. code-block:: python
+
+    from json_justify.fields import Field
 """
 
 from json_justify.utils import PlaceHolder
@@ -11,7 +14,8 @@ import json_justify.jason
 
 class Field(object):
     """
-    This is field which is used subset
+    This Field Class is Core of all the Fields and should be instanciated
+    For Creating New Fields
     """
 
     def __init__(self, field_name, validators=None):
@@ -40,8 +44,9 @@ class Field(object):
     @property
     def data(self):
         """
-        This is used to get field data
-        :return: data of field
+        Returns:
+            any: This attribute return the data associated with field.
+        
         """
         return self._data
 
