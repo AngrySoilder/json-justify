@@ -242,7 +242,7 @@ class JsonManager(object):
         -- Data type corrospondence
         -- Good with validators
 
-        :returns: True or False
+        :return: True or False
         """
         try:
             self.setup_json()
@@ -328,8 +328,7 @@ class JsonManager(object):
         This is used to regester function for rendering if param is not callable then it will raise InvalidContainer
 
         :param func:
-        :raise: InvalidContainer
-        :return:
+        :return: None
         """
         if not callable(func):
             raise InvalidContainer("render machiene should be callable")
