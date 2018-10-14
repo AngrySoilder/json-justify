@@ -37,14 +37,14 @@ class InvalidContainer(ValueError):
 
 class JsonManager(object):
 
-    """This is the main json field which ultimately
+    """
+    This is the main json field which ultimately
     any progarm will subclass to make it
     possible to create Json classes
 
-    Attributes:
-        data (TYPE): Description
-        otk_token (TYPE): Description
-
+    :param data: data to validate
+    :param allow_extra: If extra fields allowed or not
+    :param _child hook: If it is Child or not
     """
     Object = dict
     integral_types_list = [str, bool, float, int, list]
@@ -127,7 +127,6 @@ class JsonManager(object):
         This method should be used to get all of the Field class keys inside
         JsonManager Class
         :return: a list of Field
-        :type return: list
         """
         sge = []
         for key in self:
@@ -176,7 +175,7 @@ class JsonManager(object):
         """This is function which will be used to 
         setup form if data and if not provided in any of its instances
         then it will register error
-        :raise: Invalid if not valid data
+        :raises: Invalid if not valid data
         """
         if self.data is not None:
              self._set_data(data = self.data)
@@ -238,7 +237,7 @@ class JsonManager(object):
         Following Things Will be checked
         -- Data type corrospondence
         -- Good with validators
-        :return: True or False
+        :returns: True or False
         """
         try:
             self.setup_json()
@@ -272,6 +271,7 @@ class JsonManager(object):
         """
         This is used to regester function which will be called on creation of class
         if param is not callable then it will raise InvalidMachiene
+
         :param func: Callable function which returns tuple of key value pair or return value
         if function name you want to be key name
         :return: None
@@ -283,6 +283,7 @@ class JsonManager(object):
     def regester_error(self, name, value):
         """This is used to regester error to the object
         and used to regester validation Error
+
         :param name: name of error
         :param value: value of error
         """
@@ -292,6 +293,7 @@ class JsonManager(object):
         """
         This function is a dummy function which may be used to crete dummy functions
         for another projects
+
         :return:
         """
         return ('auth_token', 'token')
@@ -308,6 +310,7 @@ class JsonManager(object):
         This function is used as a master key to create
         json with registered rendered function and send it
         back as response
+
         :return: dict(Kind of Json)
         """
         ren = self._run_render_machines()
@@ -340,6 +343,7 @@ class JsonManager(object):
         """
         json_or_error function should be to get json or error
         -json and returned to system and then rendered accordingly
+
         :return: dict of error or render
         """
         if self.is_valid():
@@ -350,6 +354,7 @@ class JsonManager(object):
 def keymapper(dict_like):
     """
     This is used to create Json From rendered functions Internally
+
     :param dict_like: list of functions
     :type dict_like: list
     :return: dict of rendered functions
@@ -370,6 +375,7 @@ def keymapper(dict_like):
 def addupdict(*args):
     """
     This will be used to make summiton of dictionary keys
+
     :param args: dicts
     :return: Added dictionaries
     """
@@ -384,6 +390,7 @@ def addupdict(*args):
 def render_factory(js, render_tup):
     """
     This is used to register tuples of function to js rendering
+
     :param js: JsonManager class
     :param render_tup: Tuple of Renderjs
     :return: None
