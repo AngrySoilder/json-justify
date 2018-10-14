@@ -9,6 +9,8 @@ Json Justify
 
     * - docs
       - |docs|
+    * - coverage
+      - | |coverage|
     * - tests
       - | |travis|  |requires|
     * - package
@@ -16,6 +18,10 @@ Json Justify
 
 .. |docs| image:: https://readthedocs.org/projects/json-justify/badge/?version=latest
     :target: https://json-justify.readthedocs.io/en/latest/
+    :alt: Documentation Status
+
+.. |coverage| image:: https://coveralls.io/repos/github/AngrySoilder/json-justify/badge.svg?branch=master
+    :target:https://coveralls.io/github/AngrySoilder/json-justify?branch=master
     :alt: Documentation Status
 
 .. |travis| image:: https://travis-ci.org/AngrySoilder/json-justify.svg?branch=master
