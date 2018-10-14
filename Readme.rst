@@ -44,3 +44,57 @@ Json Justify
     :target: https://pypi.org/project/justify/
 
 .. end-badges
+
+
+Installation
+============
+This project only supports python3 version python2 support may come in upcomming versions
+
+via pip
+-------
+.. code-block:: bash
+
+    # if under linux machiene
+    pip3 install justify
+
+    # if under windows
+    pip install justify
+
+via github
+----------
+
+.. code-block:: bash
+
+    #cloning git repo
+    git clone git@github.com:AngrySoilder/json-justify.git
+    cd json-justify
+    python3 setup.py install 
+
+Basic Usage
+============
+The basic usage of json_justify is shown here which is used to validate data from source
+
+.. code-block:: python
+    
+    from json_justify import JsonManager
+    from json_justify.fields import String,Number,Boolean,Array
+
+    class Js(JsonManager):
+        name = String("name")
+        age = Number("age")
+        male = Boolean("male")
+        friends = Array("friends")
+
+    data = {
+        "name" : "john doe",
+        "age" : 120,
+        "male" : False,
+        "friends" : ["Jelly","Kelly"]
+        }
+    # This will return True
+    js = Js(data = data)
+    data.is_valid()
+
+Contribution
+============
+Contributions are welcome from community
