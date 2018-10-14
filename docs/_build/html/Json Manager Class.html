@@ -1,0 +1,257 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Json Manager &#8212; Json Justify 1.0.0 documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Fields" href="Fields.html" />
+    <link rel="prev" title="Basic Usage" href="Basic Usage.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="json-manager">
+<h1>Json Manager<a class="headerlink" href="#json-manager" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="json_justify.jason.JsonManager">
+<em class="property">class </em><code class="descclassname">json_justify.jason.</code><code class="descname">JsonManager</code><span class="sig-paren">(</span><em>data</em>, <em>allow_extra=False</em>, <em>_child_hook=False</em><span class="sig-paren">)</span><a class="headerlink" href="#json_justify.jason.JsonManager" title="Permalink to this definition">¶</a></dt>
+<dd><p>This is the main json field which ultimately
+any progarm will subclass to make it
+possible to create Json classes</p>
+<dl class="docutils">
+<dt>Attributes:</dt>
+<dd>data (TYPE): Description
+otk_token (TYPE): Description</dd>
+</dl>
+<dl class="attribute">
+<dt id="json_justify.jason.JsonManager.Object">
+<code class="descname">Object</code><a class="headerlink" href="#json_justify.jason.JsonManager.Object" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <code class="xref py py-class docutils literal notranslate"><span class="pre">builtins.dict</span></code></p>
+</dd></dl>
+
+<dl class="method">
+<dt id="json_justify.jason.JsonManager.add_render_machiene">
+<code class="descname">add_render_machiene</code><span class="sig-paren">(</span><em>func</em><span class="sig-paren">)</span><a class="headerlink" href="#json_justify.jason.JsonManager.add_render_machiene" title="Permalink to this definition">¶</a></dt>
+<dd><p>The function which will run</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd>func (callable): A callable</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="json_justify.jason.JsonManager.generate_otk_token">
+<code class="descname">generate_otk_token</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#json_justify.jason.JsonManager.generate_otk_token" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method should be reimplemented in the class who will
+instanciate this</p>
+<dl class="docutils">
+<dt>Returns:</dt>
+<dd>tuple: authentication token</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="json_justify.jason.JsonManager.integral_types">
+<code class="descname">integral_types</code><span class="sig-paren">(</span><em>data</em><span class="sig-paren">)</span><a class="headerlink" href="#json_justify.jason.JsonManager.integral_types" title="Permalink to this definition">¶</a></dt>
+<dd><p>This is used to check if field data is
+in integral types or not</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd>fields (any): any field data</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="json_justify.jason.JsonManager.is_object">
+<code class="descname">is_object</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#json_justify.jason.JsonManager.is_object" title="Permalink to this definition">¶</a></dt>
+<dd><p>This class is used to check if it is
+dir which is standard key value pair or not</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd>value (any): Value to validate</dd>
+<dt>Returns:</dt>
+<dd>bool: True if dir else Flase</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="json_justify.jason.JsonManager.is_valid">
+<code class="descname">is_valid</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#json_justify.jason.JsonManager.is_valid" title="Permalink to this definition">¶</a></dt>
+<dd><p>This is the manage function which will run
+Field’s validate function in for loop</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="json_justify.jason.JsonManager.items">
+<code class="descname">items</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#json_justify.jason.JsonManager.items" title="Permalink to this definition">¶</a></dt>
+<dd><p>This is the implementation of items</p>
+<dl class="docutils">
+<dt>Returns:</dt>
+<dd>list: a tuple to access</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="json_justify.jason.JsonManager.json_or_error">
+<code class="descname">json_or_error</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#json_justify.jason.JsonManager.json_or_error" title="Permalink to this definition">¶</a></dt>
+<dd><p>json_or_error function should be to get json or error
+-json and returned to system and then rendered accordingly
+:return:</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="json_justify.jason.JsonManager.regester_attris">
+<code class="descname">regester_attris</code><span class="sig-paren">(</span><em>func</em><span class="sig-paren">)</span><a class="headerlink" href="#json_justify.jason.JsonManager.regester_attris" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function is used to register own functions
+which will run in creation of dictionary</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd>func (func): The function to run when 
+class attributes one want to register</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="json_justify.jason.JsonManager.regester_error">
+<code class="descname">regester_error</code><span class="sig-paren">(</span><em>name</em>, <em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#json_justify.jason.JsonManager.regester_error" title="Permalink to this definition">¶</a></dt>
+<dd><p>This is used to regester error to the object
+and used to regester validation Error</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd>error_obj (TYPE): Description</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="json_justify.jason.JsonManager.render_json">
+<code class="descname">render_json</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#json_justify.jason.JsonManager.render_json" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function is used as a master key to create
+json with registered rendered function and send it
+back as response</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="json_justify.jason.JsonManager.setup_fields">
+<code class="descname">setup_fields</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#json_justify.jason.JsonManager.setup_fields" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function will setup or say filter
+fields form all value in object</p>
+<dl class="docutils">
+<dt>Returns:</dt>
+<dd>dict: dict of filtered obj</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="json_justify.jason.JsonManager.setup_json">
+<code class="descname">setup_json</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#json_justify.jason.JsonManager.setup_json" title="Permalink to this definition">¶</a></dt>
+<dd><p>This is function which will be used to 
+setup form if data is not provided in json
+format</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">Json Justify</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="Installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Basic Usage.html">Basic Usage</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Json Manager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Fields.html">Fields</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Validators.html">Validators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Utils.html">Utilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Errors.html">Errors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Changelog.html">Changelog</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="Basic Usage.html" title="previous chapter">Basic Usage</a></li>
+      <li>Next: <a href="Fields.html" title="next chapter">Fields</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2018, Akash Chaudhari.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.8.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/Json Manager Class.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

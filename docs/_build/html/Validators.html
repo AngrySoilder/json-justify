@@ -1,0 +1,222 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Validators &#8212; Json Justify 1.0.0 documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Utilities" href="Utils.html" />
+    <link rel="prev" title="Fields" href="Fields.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="validators">
+<h1>Validators<a class="headerlink" href="#validators" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="validator">
+<h2>Validator<a class="headerlink" href="#validator" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="json_justify.validators.Validator">
+<em class="property">class </em><code class="descclassname">json_justify.validators.</code><code class="descname">Validator</code><span class="sig-paren">(</span><em>message=None</em><span class="sig-paren">)</span><a class="headerlink" href="#json_justify.validators.Validator" title="Permalink to this definition">¶</a></dt>
+<dd><p>This is base class to be instantiated</p>
+</dd></dl>
+
+</div>
+<div class="section" id="data">
+<h2>Data<a class="headerlink" href="#data" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="json_justify.validators.Data">
+<em class="property">class </em><code class="descclassname">json_justify.validators.</code><code class="descname">Data</code><span class="sig-paren">(</span><em>message=None</em><span class="sig-paren">)</span><a class="headerlink" href="#json_justify.validators.Data" title="Permalink to this definition">¶</a></dt>
+<dd><p>This is Data field to check that weather data
+is provided or not</p>
+</dd></dl>
+
+</div>
+<div class="section" id="length">
+<h2>Length<a class="headerlink" href="#length" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="json_justify.validators.Length">
+<em class="property">class </em><code class="descclassname">json_justify.validators.</code><code class="descname">Length</code><span class="sig-paren">(</span><em>min_val=-1</em>, <em>max_val=-1</em>, <em>message=None</em><span class="sig-paren">)</span><a class="headerlink" href="#json_justify.validators.Length" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check if data is of proper length or not</p>
+</dd></dl>
+
+</div>
+<div class="section" id="email">
+<h2>Email<a class="headerlink" href="#email" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="json_justify.validators.Email">
+<em class="property">class </em><code class="descclassname">json_justify.validators.</code><code class="descname">Email</code><span class="sig-paren">(</span><em>message=None</em><span class="sig-paren">)</span><a class="headerlink" href="#json_justify.validators.Email" title="Permalink to this definition">¶</a></dt>
+<dd><p>This class is used to validate email in current context</p>
+</dd></dl>
+
+</div>
+<div class="section" id="url">
+<h2>URL<a class="headerlink" href="#url" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="json_justify.validators.URL">
+<em class="property">class </em><code class="descclassname">json_justify.validators.</code><code class="descname">URL</code><span class="sig-paren">(</span><em>message=None</em><span class="sig-paren">)</span><a class="headerlink" href="#json_justify.validators.URL" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="equalto">
+<h2>EqualTo<a class="headerlink" href="#equalto" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="json_justify.validators.EqualTo">
+<em class="property">class </em><code class="descclassname">json_justify.validators.</code><code class="descname">EqualTo</code><span class="sig-paren">(</span><em>field</em>, <em>message=None</em><span class="sig-paren">)</span><a class="headerlink" href="#json_justify.validators.EqualTo" title="Permalink to this definition">¶</a></dt>
+<dd><p>This class is made to check the equal parameter
+of other field</p>
+</dd></dl>
+
+</div>
+<div class="section" id="date">
+<h2>Date<a class="headerlink" href="#date" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="json_justify.validators.Date">
+<em class="property">class </em><code class="descclassname">json_justify.validators.</code><code class="descname">Date</code><span class="sig-paren">(</span><em>min_date=datetime.datetime(1</em>, <em>1</em>, <em>1</em>, <em>0</em>, <em>0)</em>, <em>max_date=datetime.datetime(1</em>, <em>1</em>, <em>1</em>, <em>0</em>, <em>0)</em>, <em>field_format=None</em>, <em>message=None</em><span class="sig-paren">)</span><a class="headerlink" href="#json_justify.validators.Date" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="regex">
+<h2>Regex<a class="headerlink" href="#regex" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="json_justify.validators.Regex">
+<em class="property">class </em><code class="descclassname">json_justify.validators.</code><code class="descname">Regex</code><span class="sig-paren">(</span><em>reg</em>, <em>message=None</em><span class="sig-paren">)</span><a class="headerlink" href="#json_justify.validators.Regex" title="Permalink to this definition">¶</a></dt>
+<dd><p>This class is simple as Layman Data class
+But inited it takes regex argument which
+should be instance of re.Pattern</p>
+</dd></dl>
+
+</div>
+<div class="section" id="right">
+<h2>Right<a class="headerlink" href="#right" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="json_justify.validators.Right">
+<em class="property">class </em><code class="descclassname">json_justify.validators.</code><code class="descname">Right</code><span class="sig-paren">(</span><em>message=None</em><span class="sig-paren">)</span><a class="headerlink" href="#json_justify.validators.Right" title="Permalink to this definition">¶</a></dt>
+<dd><p>This validator is used to justify that it always remain true</p>
+</dd></dl>
+
+</div>
+<div class="section" id="wrong">
+<h2>Wrong<a class="headerlink" href="#wrong" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="json_justify.validators.Wrong">
+<em class="property">class </em><code class="descclassname">json_justify.validators.</code><code class="descname">Wrong</code><span class="sig-paren">(</span><em>message=None</em><span class="sig-paren">)</span><a class="headerlink" href="#json_justify.validators.Wrong" title="Permalink to this definition">¶</a></dt>
+<dd><p>This validator is used to justify that it always remain true</p>
+</dd></dl>
+
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">Json Justify</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="Installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Basic Usage.html">Basic Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Json Manager Class.html">Json Manager</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Fields.html">Fields</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Validators</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#validator">Validator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#data">Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#length">Length</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#email">Email</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#url">URL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#equalto">EqualTo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#date">Date</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#regex">Regex</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#right">Right</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#wrong">Wrong</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Utils.html">Utilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Errors.html">Errors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Changelog.html">Changelog</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="Fields.html" title="previous chapter">Fields</a></li>
+      <li>Next: <a href="Utils.html" title="next chapter">Utilities</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2018, Akash Chaudhari.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.8.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/Validators.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
