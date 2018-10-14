@@ -46,9 +46,7 @@ class Field(object):
     @property
     def data(self):
         """
-        Returns:
-            any: This attribute return the data associated with field.
-        
+        :returns: data associated with particular field
         """
         return self._data
 
