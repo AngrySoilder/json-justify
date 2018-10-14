@@ -15,6 +15,7 @@ Contents
    Validators
    Utils
    Errors
+   License
    Changelog
 
 
