@@ -24,10 +24,10 @@ class Field(object):
         """
         The Basic Field object Which should be instanciated
         By every Field one create and also by custom fields
-        
-        Args:
-            field_name (str): field name in object
-            validators (None, optional): Data validators
+
+        :param field_name: Name of the field same as key inside jsonmanager
+        :param validators: list of validators to validate
+        :type validators: list
         """
         self.field_name = Keyname(field_name)
         self.error_messages = dict()
