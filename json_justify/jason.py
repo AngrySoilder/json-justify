@@ -3,6 +3,7 @@ import json_justify.fields as fields
 from inspect import isclass
 from json import dumps
 
+
 class InvalidMachiene(ValueError):
     """
     This is raised when you register invalid mahiene
@@ -122,10 +123,11 @@ class JsonManager(object):
     __repr__ = __str__
 
     def items(self):
-        """This is the implementation of items
-
-        Returns:
-            list: a tuple to access
+        """
+        This method should be used to get all of the Field class keys inside
+        JsonManager Class
+        :return: a list of Field
+        :type return: list
         """
         sge = []
         for key in self:
@@ -133,19 +135,21 @@ class JsonManager(object):
         return sge
 
     def is_object(self, value):
-        """This class is used to check if it is
+        """
+        This class is used to check if it is
         dir which is standard key value pair or not
 
-        Args:
-            value (any): Value to validate
-
-        Returns:
-            bool: True if dir else Flase
+        :param value: directory
+        :return: True or False
         """
         return isinstance(value, self.Object)
 
     @property
     def child(self):
+        """
+        This property is used to check that if it is child json or not
+        :return: True or False
+        """
         return self._child_hook
 
     @child.setter
@@ -155,11 +159,9 @@ class JsonManager(object):
         self._child_hook = value
 
     def setup_fields(self):
-        """This function will setup or say filter
-        fields form all value in object
-
-        Returns:
-            dict: dict of filtered obj
+        """This method filters out and setup field dictionary to work creates field
+        dictionary and returns it
+        :return: a dictionary of fields
         """
         dct = {str(clas) or str(getattr(self, clas).field_name): getattr(self, clas)
                for clas in dir(self) if
@@ -172,8 +174,9 @@ class JsonManager(object):
 
     def setup_json(self):
         """This is function which will be used to 
-        setup form if data is not provided in json
-        format
+        setup form if data and if not provided in any of its instances
+        then it will register error
+        :raise: Invalid if not valid data
         """
         if self.data is not None:
              self._set_data(data = self.data)
@@ -221,8 +224,8 @@ class JsonManager(object):
         """This is used to check if field data is
         in integral types or not
         
-        Args:
-            fields (any): any field data
+        :param data: value to chaeck
+        :type data: any
         """
         for bsclas in self.integral_types_list:
             if isinstance(data,bsclas):
@@ -230,12 +233,13 @@ class JsonManager(object):
         return False
 
     def  is_valid(self):
-        """This is the manage function which will run
-        Field's validate function in for loop
         """
-        # TODO: Add setup json inside try block and if json is not
-        # Todo: provided Then Reutrn False
-
+        This is used to check if data provided to JsonManager is actually valid or not
+        Following Things Will be checked
+        -- Data type corrospondence
+        -- Good with validators
+        :return: True or False
+        """
         try:
             self.setup_json()
             for field_key, field in self.items():
@@ -265,12 +269,12 @@ class JsonManager(object):
 
 
     def regester_attris(self, func):
-        """This function is used to register own functions
-        which will run in creation of dictionary
-
-        Args:
-            func (func): The function to run when 
-            class attributes one want to register  
+        """
+        This is used to regester function which will be called on creation of class
+        if param is not callable then it will raise InvalidMachiene
+        :param func: Callable function which returns tuple of key value pair or return value
+        if function name you want to be key name
+        :return: None
         """
         if not callable(func):
             raise InvalidMachiene("Registered Attris should be callable")
@@ -279,18 +283,16 @@ class JsonManager(object):
     def regester_error(self, name, value):
         """This is used to regester error to the object
         and used to regester validation Error
-
-        Args:
-            error_obj (TYPE): Description
+        :param name: name of error
+        :param value: value of error
         """
         self._error_data[name] = value
 
     def generate_otk_token(self):
-        """This method should be reimplemented in the class who will
-        instanciate this
-        
-        Returns:
-            tuple: authentication token
+        """
+        This function is a dummy function which may be used to crete dummy functions
+        for another projects
+        :return:
         """
         return ('auth_token', 'token')
 
@@ -302,9 +304,11 @@ class JsonManager(object):
         self.static = st
 
     def render_json(self):
-        """This function is used as a master key to create
+        """
+        This function is used as a master key to create
         json with registered rendered function and send it
-        back as response 
+        back as response
+        :return: dict(Kind of Json)
         """
         ren = self._run_render_machines()
         self._setup_attris()
@@ -313,10 +317,12 @@ class JsonManager(object):
 
 
     def add_render_machiene(self, func):
-        """The function which will run 
-
-        Args:
-            func (callable): A callable
+        """
+        This is used to regester function for rendering
+        if param is not callable then it will raise InvalidContainer
+        :param func:
+        :raise: InvalidContainer
+        :return:
         """
         if not callable(func):
             raise InvalidContainer("render machiene should be callable")
@@ -334,7 +340,7 @@ class JsonManager(object):
         """
         json_or_error function should be to get json or error
         -json and returned to system and then rendered accordingly
-        :return:
+        :return: dict of error or render
         """
         if self.is_valid():
             return self.data
@@ -342,15 +348,11 @@ class JsonManager(object):
             return self._error_data
 
 def keymapper(dict_like):
-    """This function is used to take a function 
-    and then reutrn dict that will be used later
-    
-    Args:
-        dict_like (list,set): A dict that will be used for
-        the later functionalities like mapping
-        this is basically used to create a mapping
-        of render and attris function functionaliies
-        creation
+    """
+    This is used to create Json From rendered functions Internally
+    :param dict_like: list of functions
+    :type dict_like: list
+    :return: dict of rendered functions
     """
     _return = {}
     for func in dict_like:
@@ -366,6 +368,11 @@ def keymapper(dict_like):
 
 
 def addupdict(*args):
+    """
+    This will be used to make summiton of dictionary keys
+    :param args: dicts
+    :return: Added dictionaries
+    """
     _storage = {}
     for arg in args:
         if not isinstance(arg, dict):
@@ -375,6 +382,12 @@ def addupdict(*args):
     return _storage
 
 def render_factory(js, render_tup):
+    """
+    This is used to register tuples of function to js rendering
+    :param js: JsonManager class
+    :param render_tup: Tuple of Renderjs
+    :return: None
+    """
     if not isinstance(js, JsonManager):
         raise ValueError("parameter js should be instance of JsonManager")
 
