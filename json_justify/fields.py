@@ -26,14 +26,7 @@ class Field(object):
     """
 
     def __init__(self, field_name, validators=None):
-        """
-        The Basic Field object Which should be instanciated
-        By every Field one create and also by custom fields
 
-        :param field_name: Name of the field same as key inside jsonmanager
-        :param validators: list of validators to validate
-        :type validators: list
-        """
         self.field_name = Keyname(field_name)
         self.error_messages = dict()
         if validators is not None and not isinstance(validators, list):
@@ -104,11 +97,10 @@ class String(Field):
     This field is automacally called inside JsonManager Class and validated if Invalid
     data is raised it will automatically catched by JsonManager Class
 
-    Raises:
-        Invalid(exception): If data is not string
-    
-    Extends:
-        Field
+    :param field_name: Name of the field same as JsonManager Class Field
+    :param validators: list of validators
+    :type field_name: str
+    :type validators: list of callable take one param data
     """
 
     def _validate(self):
@@ -132,8 +124,10 @@ class Number(Field):
     This field will raise Invalid and automatically catched by JsonManager if Data to 
     key is not int of float
     
-    Extends:
-        Field
+    :param field_name: Name of the field same as JsonManager Class Field
+    :param validators: list of validators
+    :type field_name: str
+    :type validators: list of callable take one param data
     """
     def _validate(self):
         """
@@ -155,8 +149,10 @@ class Boolean(Field):
     This field will raise Invalid and automatically catched by JsonManager if Data to 
     key is not Boolean
     
-    Extends:
-        Field
+    :param field_name: Name of the field same as JsonManager Class Field
+    :param validators: list of validators
+    :type field_name: str
+    :type validators: list of callable take one param data
     """
 
     def _validate(self):
@@ -177,11 +173,18 @@ class Boolean(Field):
 class Array(Field):
     """This is simple Array Field and should be used with JsonManager Class to create simple
     Arrays and also objects inside array
-    
+
+    Only one of three paremeters from js_model, validators, seq_validators can be choosed
+    at a time
     Two Dimentional or N-Dimentional Array May be Implemented inside later Version of This
 
-    Extends:
-        Field
+    :param field_name: Name of the field same as JsonManager Class Field
+    :param validators: list of validators
+    :type field_name: str
+    :type validators: list of callable take one param data
+    :param js_model: a JsonManager Class that should be used to create array of key json
+    :param seq_validators: A sequence of validators to validate each sequence of validator
+    if choosed length of array is seq_validator
     """
     def __init__(self, field_name, min_len=-1, max_len=-1,
                  js_model=None, validators=None, seq_validators=None):
@@ -263,6 +266,8 @@ class Keyname(object):
 
     """This is keymame of different JsonManager linked Field
     This is used privately inside module
+    :param key: keyname
+    :param prefix: prefix for keyname
     """
     
     def __init__(self, key, prefix=None):
