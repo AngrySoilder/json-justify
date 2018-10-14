@@ -1,9 +1,6 @@
 """
 fields is used to import various fields for json
 example
-.. code-block:: python
-
-    from json_justify.fields import Field
 """
 
 from json_justify.utils import PlaceHolder
@@ -16,6 +13,11 @@ class Field(object):
     """
     This Field Class is Core of all the Fields and should be instanciated
     For Creating New Fields
+    This should only be used with JsonManager Field
+    Following Things should be done in order to Create Field
+    -- Instanciate Field
+    -- Should implement _validate() function to which data of field will be provided
+    Also one can change whole functionality by instanciating Field object as well
     """
 
     def __init__(self, field_name, validators=None):
@@ -61,7 +63,7 @@ class Field(object):
     def register_error(self, key,value):
         """This Function is used to register error
         of the fields which is usually done by the
-        validaors to reetister error
+        validaors to register errors
         
         Args:
             message (str): Description of the message
@@ -91,8 +93,16 @@ class Field(object):
 
 
 class String(Field):
-    """
-    This is Basic String Field
+    """This is simple String Field of json Which should be used with json manager class 
+    
+    This field is automacally called inside JsonManager Class and validated if Invalid
+    data is raised it will automatically catched by JsonManager Class
+
+    Raises:
+        Invalid(exception): If data is not string
+    
+    Extends:
+        Field
     """
 
     def _validate(self):
@@ -111,8 +121,13 @@ class String(Field):
 
 
 class Number(Field):
-    """
-    This Field is used to Create Numerical Fields
+    """This is Number Field and Should be Used inside JsonManager Class to create numbers
+    
+    This field will raise Invalid and automatically catched by JsonManager if Data to 
+    key is not int of float
+    
+    Extends:
+        Field
     """
     def _validate(self):
         """
@@ -129,8 +144,13 @@ class Number(Field):
 
 
 class Boolean(Field):
-    """
-    This is Boolean Field
+    """This is Boolean Field and Should be Used inside JsonManager Class to create numbers
+    
+    This field will raise Invalid and automatically catched by JsonManager if Data to 
+    key is not Boolean
+    
+    Extends:
+        Field
     """
 
     def _validate(self):
@@ -148,11 +168,14 @@ class Boolean(Field):
             raise Invalid("Data should be boolean type")
 
 
-# TODO: Need to add n-d dimentional array support
 class Array(Field):
-    """
-    This is Array Field This is Simple one with simple
-    literals as their items like
+    """This is simple Array Field and should be used with JsonManager Class to create simple
+    Arrays and also objects inside array
+    
+    Two Dimentional or N-Dimentional Array May be Implemented inside later Version of This
+    
+    Extends:
+        Field
     """
     def __init__(self, field_name, min_len=-1, max_len=-1,
                  js_model=None, validators=None, seq_validators=None):
@@ -232,7 +255,8 @@ class Array(Field):
 
 class Keyname(object):
 
-    """This is used to assing key name in the field of the json
+    """This is keymame of different JsonManager linked Field
+    This is used privately inside module
     """
     
     def __init__(self, key, prefix=None):
