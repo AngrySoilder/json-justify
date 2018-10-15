@@ -6,9 +6,12 @@ from json import dumps
 
 class InvalidMachiene(ValueError):
     """
-    This is raised when you register invalid mahiene
-    """
+    This is InvalidMachiene class which is used to raise Exception
+    when Invalid function is registered to attris
 
+    :param message: message to be raise when error occours
+    :type message: str
+    """
     def __init__(self, message):
         """Initialize the class
 
@@ -20,9 +23,12 @@ class InvalidMachiene(ValueError):
 
 class InvalidContainer(ValueError):
 
-    """This Class is used to Create Exception when
-    Invalid Json is Provided to Manager or some
-    invalid activity is encountered by Manager
+    """
+    This is InvalidMachiene class which is used to raise Exception
+    when Invalid function is registered to render
+
+    :param message: message to be raise when error occours
+    :type message: str
     """
 
     def __init__(self, message):

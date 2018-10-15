@@ -29,25 +29,29 @@ class Invalid(ValueError):
 
     def __init__(self, message, *args, **kwargs):
         """
-        This Error is used to Declare that it is
-        Invalid
+        This Exception is General Exception used to raise when Data is invalid,
+        Not a valid Type etc.
 
-        Args:
-            message (str): Error Message
-            *args: any
-            **kwargs: any
+        :param message: Message you want to print in error
+        :param args: any
+        :param kwargs: any
+        :type message: str
         """
         super(Invalid, self).__init__(message, *args, **kwargs)
 
 
 class Validator(object):
     """
-    This is base class to be instantiated
+    This is core of each validator class
+
+    :param message: Message to be raised when any invalidation occours
+    :type message: str
     """
 
     def __init__(self, message=None):
         """
         This is The basic Validator
+
         :param message: The message you want to get in template engine
         """
         if message is not None:
@@ -55,8 +59,12 @@ class Validator(object):
 
 class Data(Validator):
 
-    """This is Data field to check that weather data
+    """
+    This is Data field to check that weather data
     is provided or not
+
+    :param message: Message to be raised when any invalidation occours
+    :type message: str
     """
 
     def __call__(self, obj, field):
@@ -82,21 +90,19 @@ class Data(Validator):
         
 
 class Length(Validator):
-
-    """Check if data is of proper length or not
     """
+    This validator is used to check the minimum and maximum Length of data
+    This will work with str, int , float not with array length
 
+    :param min_val: minimum length
+    :param max_val: maximum length
+    :param message: Message to be raised when any invalidation occours
+    :type message: str
+    :type min_val: int
+    :type max_val: int
+    """
     def __init__(self, min_val=-1, max_val=-1, message=None):
         """Overriding Validator Base class
-
-        Args:
-            min_val (int, optional): minimum length
-            max_val (int, optional): maximum length
-            message (str, optional): message to grab
-                                    if invalid through invalid
-
-        Raises:
-            Invalid: if it is smaller then minimum or grater than minimum
         """
         super(Length,self).__init__(message)
         if min_val == -1 and max_val == -1:
@@ -118,7 +124,13 @@ class Length(Validator):
 
 class Email(Validator):
 
-    """This class is used to validate email in current context
+    """
+    The Email Validator is used to validate Email which use dependency of python
+    email_validator to validate email if not installed on machiene it will used
+    standard regex to validate email
+
+    :param message: Message to be raised when any invalidation occours
+    :type message: str
     """
 
     def __call__(self, obj, field):
@@ -134,7 +146,15 @@ class Email(Validator):
         except EmailNotValidError:
             raise Invalid(str(self.data) + "is not valid")
 
+
 class URL(Validator):
+    """
+    The url validator is used to validate url's But it dones not instanciate
+    from Regex class here this is another implementation
+
+    :param message: Message to be raised when any invalidation occours
+    :type message: str
+    """
 
     def __call__(self, obj, field):
         """A Class to validate urls
@@ -149,8 +169,14 @@ class URL(Validator):
 
 
 class EqualTo(Validator):
-    """This class is made to check the equal parameter
-        of other field
+    """
+    The EqualTo Validator is used to check if data in our field is
+    same as other field
+
+    :param field: Other field Pass the whole Field
+    :param message: Message to be raised when any invalidation occours
+    :type message: str
+    :type field: Field class
     """
 
     def __init__(self, field, message=None):
@@ -169,19 +195,23 @@ class EqualTo(Validator):
 
 
 class Date(Validator):
+    """
+    The date field validator is used to validate date field
+    under specific range of min_date and max_date
+
+    :param min_date: minimum date
+    :param max_date: maximum date
+    :param field_format: format of field
+    :param message: message
+    :type min_date: str of year-month-date
+    :type max_date: str of year-month-date
+    :type field_format: Field format %Y-%M-%d is default
+    :type message: str
+    """
 
     def __init__(self, min_date= datetime.min, max_date= datetime.min,field_format=None, message=None ):
         """
-        The date field validator is used to validate date field
-        under specific range of min_date and max_date
-        
-        Args:
-            message (str): message you want in errors
-            min_date (minimum date, optional): Minimum date bound
-            max_date (datetime, optional): Maximum Date limit
-        
-        Raises:
-            Invalid: Invalid Message
+        Overiding Init
         """
         if field_format is None:
             self.field_format = "%Y-%M-%d"
@@ -198,6 +228,7 @@ class Date(Validator):
         """
         call the validator just with object containing
         field and the field object
+
         :param obj: object containing field
         :param field: some field object which instantiate Field
                         which is callable and raises Invalid error
@@ -228,9 +259,12 @@ class Date(Validator):
 
 class Regex(Validator):
     """
-    This class is simple as Layman Data class
-    But inited it takes regex argument which
-    should be instance of re.Pattern
+    This is used to validate data in format of regex
+
+    :param regex: regex
+    :param message: Message to be raised when Error occours
+    :type message: str
+    :type regex: str
     """
 
     def __init__(self, reg, message=None):
@@ -253,10 +287,13 @@ class Regex(Validator):
             raise Invalid("it does not match The valid Pattern")
             
 class Right(Validator):
-
-    """This validator is used to justify that it always remain true
     """
+    This Validator is specific to boolean Field which validates that
+    data is True only
 
+    :param message: message to be raise when error occours
+    :type message: str
+    """
     def __call__(self,obj,field):
         self.data = field.data
         if not isinstance(self.data, bool):
@@ -267,8 +304,12 @@ class Right(Validator):
             raise Invalid("field is false")
 
 class Wrong(Validator):
+    """
+    This Validator is specific to boolean Field which validates that
+    data is False only
 
-    """This validator is used to justify that it always remain true
+    :param message: message to be raise when error occours
+    :type message: str
     """
 
     def __call__(self,obj,field):

@@ -2,8 +2,9 @@ from json import dumps
 
 class ErrorResponse(object):
 
-    """This class is creted and implemented in later version
-    Just a dummy version of classes
+    """
+    This class will be used to create error response but it will be
+    used in later implementation of module
     """
     def __init__(self, response = None):
         self.response = dict()
@@ -22,8 +23,8 @@ class ErrorResponse(object):
 
 class PlaceHolder(object):
 
-    """This is Placeholder class used to create data
-    of field or any other object where data is not set
+    """
+    This is placeholder which is used when no data is set
     """
 
     def __str__(self):
@@ -41,6 +42,10 @@ class Level(object):
 
     """This class will be used to
     set Level of runtime
+    :Example:
+    level = Level(Level.DEBUG)
+
+    :param level: int
     """
     DEBUG = 0
     PRODUCTION = 1
@@ -55,10 +60,13 @@ class Level(object):
 
     @property
     def level(self):
-        """This is used to set level
-        
-        Args:
-            Level (int): Level of Production
+        """
+        This is used to set level to work with
+        default levels are as follow
+        DEGUG
+        PRODUCTION
+
+        :return: Int
         """
         return self._value
 
