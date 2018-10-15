@@ -26,17 +26,16 @@ except ImportError as e:
             raise Invalid("Email is Not Valid")
 
 class Invalid(ValueError):
+    """
+    This Exception is General Exception used to raise when Data is invalid,
+    Not a valid Type etc.
 
+    :param message: Message you want to print in error
+    :param args: any
+    :param kwargs: any
+    :type message: str
+    """
     def __init__(self, message, *args, **kwargs):
-        """
-        This Exception is General Exception used to raise when Data is invalid,
-        Not a valid Type etc.
-
-        :param message: Message you want to print in error
-        :param args: any
-        :param kwargs: any
-        :type message: str
-        """
         super(Invalid, self).__init__(message, *args, **kwargs)
 
 
